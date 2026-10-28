@@ -1,0 +1,23 @@
+# Credentials and local environment data
+.env
+.env.*
+!.env.example
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+*.auto.tfvars
+*.auto.tfvars.json
+# Terraform generated state and plans
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.plan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+# Keep .terraform.lock.hcl files tracked for reproducibility
+.DS_Store
