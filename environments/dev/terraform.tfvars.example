@@ -1,0 +1,10 @@
+# Copy to an untracked terraform.tfvars and review every value before planning.
+# Use a real account ID belonging to the DEV account only.
+aws_account_id = "000000000000"
+aws_region     = "us-east-2"
+environment    = "dev"
+vpc_cidr       = "10.20.0.0/16"
+private_subnets = {
+  "us-east-2a" = "10.20.1.0/24"
+  "us-east-2b" = "10.20.2.0/24"
+}
