@@ -2,7 +2,7 @@ resource "aws_vpc" "this" {
   cidr_block           = var.vpc_cidr
   enable_dns_support   = true
   enable_dns_hostnames = true
-  tags = merge(var.tags, { Name = "${var.name}-vpc" })
+  tags                 = merge(var.tags, { Name = "${var.name}-vpc" })
 }
 
 resource "aws_subnet" "private" {
@@ -11,7 +11,7 @@ resource "aws_subnet" "private" {
   availability_zone       = each.key
   cidr_block              = each.value
   map_public_ip_on_launch = false
-  tags = merge(var.tags, { Name = "${var.name}-private-${each.key}", Tier = "private" })
+  tags                    = merge(var.tags, { Name = "${var.name}-private-${each.key}", Tier = "private" })
 }
 
 resource "aws_route_table" "private" {
