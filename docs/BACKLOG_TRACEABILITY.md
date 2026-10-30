@@ -2,7 +2,7 @@
 
 **Status:** Proposed engineering backlog, not an AWS deployment. Machine-readable index: [backlog-traceability.json](backlog-traceability.json).
 
-Sources: [Taiga canonical backlog](https://github.com/Notoriousjayy/taiga-automation/blob/feat/aws-cloud-rich-backlog-20261030/data/stories/secure-aws-cloud-backlog.json) · [Architecture documents](https://github.com/Notoriousjayy/latex-docs/tree/docs/aws-cloud-six-gates-20261030/src/architecture/cloud/reusable-secure-aws-cloud-environment)
+Sources: [Taiga canonical backlog](https://github.com/Notoriousjayy/taiga-automation/blob/main/data/stories/secure-aws-cloud-backlog.json) · [Architecture documents](https://github.com/Notoriousjayy/latex-docs/tree/main/src/architecture/cloud/reusable-secure-aws-cloud-environment)
 
 ## Current reality
 
