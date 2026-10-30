@@ -50,3 +50,7 @@ See [implementation gates](docs/ROADMAP.md), [architecture](docs/architecture/RE
 ## Architectural reference
 
 This project implements the companion design principles in *Reusable Secure AWS Cloud Environment: Architecture, Learning Crosswalk, and Terraform Implementation Roadmap* (v1.0, 28 October 2026). It builds on the vendor-neutral concepts of *Cloud Computing: Concepts, Technology, Security & Architecture*, 2nd edition (Thomas Erl and Eric Barceló Monroy), without attributing AWS-specific Terraform implementation details to that book.
+
+## Engineering backlog and architecture acceptance
+
+The six-gate [Taiga-to-Terraform traceability matrix](docs/BACKLOG_TRACEABILITY.md), [machine-readable mapping](docs/backlog-traceability.json), and [gate test plan](tests/GATE_ACCEPTANCE_PLAN.md) specify proposed work across 42 stories and 210 planned tasks. The canonical rich backlog is owned by the private `taiga-automation` repository; this mapping does not deploy infrastructure and does not assert any gate passed. The source architecture and printable assessments belong to `latex-docs`.

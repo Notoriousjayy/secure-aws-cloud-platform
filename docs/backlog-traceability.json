@@ -1,0 +1,955 @@
+{
+  "schema_version": 1,
+  "generated_from": "Notoriousjayy/taiga-automation:data/stories/secure-aws-cloud-backlog.json",
+  "baseline_date": "2026-10-30",
+  "stories": [
+    {
+      "story_id": "SC-G1-01",
+      "gate": "G1",
+      "title": "Review AWS account topology and ownership",
+      "terraform_path": "docs/architecture",
+      "prerequisites": [],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when aws account topology and ownership is validated, then approved account inventory and shared owner for each control.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Account governance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G1-02",
+      "gate": "G1",
+      "title": "Document cloud shared-responsibility boundaries",
+      "terraform_path": "docs/architecture",
+      "prerequisites": [
+        "SC-G1-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when cloud shared-responsibility boundaries is validated, then control-owner matrix covers identity, encryption, logs, runtime and recovery.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Governance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G1-03",
+      "gate": "G1",
+      "title": "Approve development staging and production account isolation",
+      "terraform_path": "docs/adr",
+      "prerequisites": [
+        "SC-G1-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when development staging and production account isolation is validated, then reviewed trust boundary diagram shows three accounts and deployment role separation.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Account isolation tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G1-04",
+      "gate": "G1",
+      "title": "Establish architecture requirements and ADR register",
+      "terraform_path": "docs/architecture",
+      "prerequisites": [
+        "SC-G1-01",
+        "SC-G1-03"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when architecture requirements and adr register is validated, then ADR register identifies proposed and approved decisions with architecture references.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Architecture governance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G1-05",
+      "gate": "G1",
+      "title": "Develop the initial AWS threat model",
+      "terraform_path": "docs/threat-model",
+      "prerequisites": [
+        "SC-G1-03"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when the initial aws threat model is validated, then threat model covers identity theft, state exposure, egress, lateral movement, and pipeline compromise.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Threat modeling tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G1-06",
+      "gate": "G1",
+      "title": "Define resource ownership tagging and cost boundaries",
+      "terraform_path": "modules/cost-management",
+      "prerequisites": [
+        "SC-G1-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when resource ownership tagging and cost boundaries is validated, then tag schema specifies Environment, Owner and CostCenter and includes validation.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Platform governance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G1-07",
+      "gate": "G1",
+      "title": "Approve G1 isolation acceptance evidence",
+      "terraform_path": "tests",
+      "prerequisites": [
+        "SC-G1-02",
+        "SC-G1-03",
+        "SC-G1-04",
+        "SC-G1-05",
+        "SC-G1-06"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when g1 isolation acceptance evidence is validated, then account model, IAM deny results and signed gate review are traceable.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Gate assurance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G2-01",
+      "gate": "G2",
+      "title": "Harden existing private VPC network module",
+      "terraform_path": "modules/network",
+      "prerequisites": [
+        "SC-G1-03"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when existing private vpc network module is validated, then dev root validates a VPC with private subnets and no unintended public address assignments.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Networking tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G2-02",
+      "gate": "G2",
+      "title": "Specify egress and route-table policy",
+      "terraform_path": "modules/network-security",
+      "prerequisites": [
+        "SC-G2-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when egress and route-table policy is validated, then route and egress matrix accounts for NAT, gateway endpoints, and internet access.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Network control tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G2-03",
+      "gate": "G2",
+      "title": "Implement validated VPC endpoint patterns",
+      "terraform_path": "modules/network",
+      "prerequisites": [
+        "SC-G2-01",
+        "SC-G2-02"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when validated vpc endpoint patterns is validated, then test workload reaches selected AWS APIs via configured private endpoint.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Private connectivity tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G2-04",
+      "gate": "G2",
+      "title": "Deliver reusable least-privilege IAM module",
+      "terraform_path": "modules/identity",
+      "prerequisites": [
+        "SC-G1-03"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when reusable least-privilege iam module is validated, then role policies use explicit service actions, resources and conditions.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Identity tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G2-05",
+      "gate": "G2",
+      "title": "Constrain GitHub Actions to AWS STS OIDC roles",
+      "terraform_path": "modules/identity",
+      "prerequisites": [
+        "SC-G2-04"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when github actions to aws sts oidc roles is validated, then trust policy validates the observed OIDC subject, audience and repo/environment.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Federation tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G2-06",
+      "gate": "G2",
+      "title": "Validate negative identity and network access",
+      "terraform_path": "tests",
+      "prerequisites": [
+        "SC-G2-02",
+        "SC-G2-03",
+        "SC-G2-04",
+        "SC-G2-05"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when negative identity and network access is validated, then automated tests exercise denied cross-account role assumption and forbidden network flows.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Security assurance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G2-07",
+      "gate": "G2",
+      "title": "Approve G2 network and IAM acceptance evidence",
+      "terraform_path": "tests",
+      "prerequisites": [
+        "SC-G2-01",
+        "SC-G2-02",
+        "SC-G2-03",
+        "SC-G2-04",
+        "SC-G2-05",
+        "SC-G2-06"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when g2 network and iam acceptance evidence is validated, then network and IAM evidence links to reviewed policies and test runs.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Gate assurance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G3-01",
+      "gate": "G3",
+      "title": "Bootstrap independently governed development S3 state",
+      "terraform_path": "bootstrap/terraform-state",
+      "prerequisites": [
+        "SC-G1-03",
+        "SC-G2-04"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when independently governed development s3 state is validated, then backend bucket has public access block, encryption, ownership enforcement and versioning.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant State foundation tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G3-02",
+      "gate": "G3",
+      "title": "Enforce state-object and lockfile IAM scoping",
+      "terraform_path": "bootstrap/terraform-state",
+      "prerequisites": [
+        "SC-G3-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when state-object and lockfile iam scoping is validated, then role can access own state key and matching lockfile only.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant State access tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G3-03",
+      "gate": "G3",
+      "title": "Test S3 native state locking and recovery",
+      "terraform_path": "tests",
+      "prerequisites": [
+        "SC-G3-01",
+        "SC-G3-02"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when s3 native state locking and recovery is validated, then two competing state operations honor locking and documented restore exercise succeeds.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant State resilience tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G3-04",
+      "gate": "G3",
+      "title": "Implement encryption and KMS key-policy baseline",
+      "terraform_path": "modules/data-protection",
+      "prerequisites": [
+        "SC-G3-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when encryption and kms key-policy baseline is validated, then KMS policy names approved principals and key recovery role.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Encryption tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G3-05",
+      "gate": "G3",
+      "title": "Provision secret containers and scoped runtime access",
+      "terraform_path": "modules/data-protection",
+      "prerequisites": [
+        "SC-G2-04",
+        "SC-G3-04"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when secret containers and scoped runtime access is validated, then approved workload role retrieves only its own named secret.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Secrets management tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G3-06",
+      "gate": "G3",
+      "title": "Validate Terraform and GitHub secret-leakage controls",
+      "terraform_path": "policies",
+      "prerequisites": [
+        "SC-G3-04",
+        "SC-G3-05"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when terraform and github secret-leakage controls is validated, then CI detects deliberately injected fake secret and scans sensitive outputs.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Secret assurance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G3-07",
+      "gate": "G3",
+      "title": "Approve G3 state and secrets assurance evidence",
+      "terraform_path": "tests",
+      "prerequisites": [
+        "SC-G3-01",
+        "SC-G3-02",
+        "SC-G3-03",
+        "SC-G3-04",
+        "SC-G3-05",
+        "SC-G3-06"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when g3 state and secrets assurance evidence is validated, then state protection, restoration and secret-negative evidence signed off.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Gate assurance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G4-01",
+      "gate": "G4",
+      "title": "Define module input-output and versioning contracts",
+      "terraform_path": "modules",
+      "prerequisites": [
+        "SC-G1-04",
+        "SC-G3-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when module input-output and versioning contracts is validated, then modules expose validated inputs, nonsecret outputs and explicit provider constraints.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Module governance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G4-02",
+      "gate": "G4",
+      "title": "Implement reusable network-security module contract",
+      "terraform_path": "modules/network-security",
+      "prerequisites": [
+        "SC-G2-01",
+        "SC-G4-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when reusable network-security module contract is validated, then module emits only documented ingress and egress rules.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Network security module tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G4-03",
+      "gate": "G4",
+      "title": "Implement baseline monitoring and policy modules",
+      "terraform_path": "modules/security-baseline",
+      "prerequisites": [
+        "SC-G2-04",
+        "SC-G3-04",
+        "SC-G4-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when baseline monitoring and policy modules is validated, then module maps required controls to applicable accounts without duplicating central services.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Security baseline tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G4-04",
+      "gate": "G4",
+      "title": "Select and design the initial compute workload",
+      "terraform_path": "docs/adr",
+      "prerequisites": [
+        "SC-G4-01",
+        "SC-G4-02"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when and design the initial compute workload is validated, then ADR compares Lambda and ECS Fargate and records one justified choice.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Compute architecture tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G4-05",
+      "gate": "G4",
+      "title": "Implement isolated dev and staging environment roots",
+      "terraform_path": "environments/dev",
+      "prerequisites": [
+        "SC-G1-03",
+        "SC-G3-02",
+        "SC-G4-01",
+        "SC-G4-02",
+        "SC-G4-03"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when isolated dev and staging environment roots is validated, then dev and staging roots use independent roles, backend prefixes and account constraints.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Environment composition tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G4-06",
+      "gate": "G4",
+      "title": "Deploy representative application into isolated environments",
+      "terraform_path": "modules/compute",
+      "prerequisites": [
+        "SC-G3-05",
+        "SC-G4-04",
+        "SC-G4-05"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when representative application into isolated environments is validated, then workload can retrieve approved secret, emit logs and serve its smoke check in dev and staging.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Workload validation tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G4-07",
+      "gate": "G4",
+      "title": "Approve G4 module reusability acceptance",
+      "terraform_path": "tests",
+      "prerequisites": [
+        "SC-G4-01",
+        "SC-G4-02",
+        "SC-G4-03",
+        "SC-G4-04",
+        "SC-G4-05",
+        "SC-G4-06"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when g4 module reusability acceptance is validated, then same reviewed module revision validates both environments with independent state.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Gate assurance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G5-01",
+      "gate": "G5",
+      "title": "Establish CloudTrail CloudWatch and Config baselines",
+      "terraform_path": "modules/observability",
+      "prerequisites": [
+        "SC-G4-03",
+        "SC-G4-05"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when cloudtrail cloudwatch and config baselines is validated, then approved events arrive in governed log destinations with documented retention.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Telemetry tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G5-02",
+      "gate": "G5",
+      "title": "Integrate GuardDuty Security Hub and IAM Access Analyzer",
+      "terraform_path": "modules/security-baseline",
+      "prerequisites": [
+        "SC-G4-03",
+        "SC-G5-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when guardduty security hub and iam access analyzer is validated, then sample security finding reaches the documented triage owner.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Threat detection tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G5-03",
+      "gate": "G5",
+      "title": "Configure alarms SLOs and alert ownership",
+      "terraform_path": "modules/observability",
+      "prerequisites": [
+        "SC-G4-06",
+        "SC-G5-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when alarms slos and alert ownership is validated, then synthetic error triggers alert delivered to named owner within target test interval.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Operational observability tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G5-04",
+      "gate": "G5",
+      "title": "Define backup retention and workload recovery objectives",
+      "terraform_path": "modules/backup-recovery",
+      "prerequisites": [
+        "SC-G4-06",
+        "SC-G5-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when backup retention and workload recovery objectives is validated, then RPO RTO and retention are documented with accountable owner.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Recovery planning tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G5-05",
+      "gate": "G5",
+      "title": "Run a restore drill and document recovery evidence",
+      "terraform_path": "tests",
+      "prerequisites": [
+        "SC-G5-04"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when a restore drill and document recovery evidence is validated, then completed restore drill records timestamps, validation results, and corrective findings.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Recovery validation tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G5-06",
+      "gate": "G5",
+      "title": "Implement cost visibility and budget notifications",
+      "terraform_path": "modules/cost-management",
+      "prerequisites": [
+        "SC-G1-06",
+        "SC-G4-05"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when cost visibility and budget notifications is validated, then tag-based spend view and budget threshold notification are testable.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant FinOps tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G5-07",
+      "gate": "G5",
+      "title": "Approve G5 operational and recovery evidence",
+      "terraform_path": "tests",
+      "prerequisites": [
+        "SC-G5-01",
+        "SC-G5-02",
+        "SC-G5-03",
+        "SC-G5-04",
+        "SC-G5-05",
+        "SC-G5-06"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when g5 operational and recovery evidence is validated, then alert routing, retention, cost controls and restore evidence reviewed.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Gate assurance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G6-01",
+      "gate": "G6",
+      "title": "Harden Terraform validation and lockfile verification",
+      "terraform_path": ".github/workflows",
+      "prerequisites": [
+        "SC-G4-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when terraform validation and lockfile verification is validated, then fmt/init/validate and lockfile integrity checks run on proposed changes.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant CI foundation tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G6-02",
+      "gate": "G6",
+      "title": "Integrate policy-as-code and IaC vulnerability scans",
+      "terraform_path": "policies",
+      "prerequisites": [
+        "SC-G3-06",
+        "SC-G6-01"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when policy-as-code and iac vulnerability scans is validated, then policy fixture with public ingress is rejected, scan summary linked to PR.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant DevSecOps tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G6-03",
+      "gate": "G6",
+      "title": "Publish protected Terraform plans with independent review",
+      "terraform_path": ".github/workflows",
+      "prerequisites": [
+        "SC-G2-05",
+        "SC-G3-01",
+        "SC-G6-01",
+        "SC-G6-02"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when protected terraform plans with independent review is validated, then reviewers see redacted change summary tied to source commit.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Change control tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G6-04",
+      "gate": "G6",
+      "title": "Implement OIDC-authenticated dev and staging deployment",
+      "terraform_path": ".github/workflows",
+      "prerequisites": [
+        "SC-G2-05",
+        "SC-G4-05",
+        "SC-G6-03"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when oidc-authenticated dev and staging deployment is validated, then workflow assumes correct role and deploys only approved dev or staging root.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Controlled deployment tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G6-05",
+      "gate": "G6",
+      "title": "Protect production promotion with independent approval",
+      "terraform_path": ".github/workflows",
+      "prerequisites": [
+        "SC-G1-03",
+        "SC-G6-03",
+        "SC-G6-04"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when production promotion with independent approval is validated, then prod deployment gated by enforced reviewers and independent role.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Production governance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G6-06",
+      "gate": "G6",
+      "title": "Automate drift detection and controlled recovery",
+      "terraform_path": "tests",
+      "prerequisites": [
+        "SC-G6-04",
+        "SC-G6-05"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when drift detection and controlled recovery is validated, then test drift creates alert and reviewed remediation record.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Drift management tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    },
+    {
+      "story_id": "SC-G6-07",
+      "gate": "G6",
+      "title": "Approve cross-gate production readiness evidence",
+      "terraform_path": "tests",
+      "prerequisites": [
+        "SC-G1-07",
+        "SC-G2-07",
+        "SC-G3-07",
+        "SC-G4-07",
+        "SC-G5-07",
+        "SC-G6-01",
+        "SC-G6-02",
+        "SC-G6-03",
+        "SC-G6-04",
+        "SC-G6-05",
+        "SC-G6-06"
+      ],
+      "acceptance_criteria": [
+        "Given a reviewed design and authorized environment, when cross-gate production readiness evidence is validated, then gate matrix shows signed evidence and unresolved risks before prod authorization.",
+        "Given a controlled test scenario, when the expected successful operation is performed, then the result is recorded with source commit, account boundary and reviewer.",
+        "Given the story's implementation changes, when CI executes, then applicable static validation and security checks pass and their results remain accessible."
+      ],
+      "evidence": [
+        "CI validation and relevant Final assurance tests at pinned commit",
+        "Reviewed architecture/control record and change approval",
+        "Negative-test result or documented risk exception"
+      ],
+      "implementation_status": "planned",
+      "verified": false
+    }
+  ]
+}
